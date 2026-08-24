@@ -15,6 +15,7 @@ while True:
     print("3 - Add grade")
     print("4 - Find student")
     print("5 - Delete student")
+    print("6 - Edit student")
     print("0 - Exit")
 
     choice = input("Choose: ")
@@ -80,6 +81,20 @@ while True:
         if manager.delete_student(student_id):
             manager.save_students()
             print("Student deleted successfully.")
+        else:
+            print("Student not found.")
+
+    elif choice == "6":
+        student_id = input("Student ID: ").strip()
+        new_name = input("New name: ").strip()
+
+        if not new_name:
+            print("Student name cannot be empty.")
+            continue
+
+        if manager.update_student(student_id, new_name):
+            manager.save_students()
+            print("Student updated successfully.")
         else:
             print("Student not found.")
 

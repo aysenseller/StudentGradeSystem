@@ -64,3 +64,13 @@ class StudentManager:
 
         self.students.remove(student)
         return True
+
+    def update_student(self,student_id,new_name):
+        student = self.find_student(student_id)
+
+        if student is None:
+            return False
+
+        student.name = new_name
+        return True
+    
