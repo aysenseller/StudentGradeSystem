@@ -3,7 +3,16 @@
         "name": "Beril",
         "student_id": "22",
         "grades": [
-            68.0
+            68.0,
+            77.0
+        ]
+    },
+    {
+        "name": "Arda",
+        "student_id": "23",
+        "grades": [
+            80.0,
+            92.0
         ]
     }
 ]

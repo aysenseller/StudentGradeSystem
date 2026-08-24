@@ -16,6 +16,7 @@ while True:
     print("4 - Find student")
     print("5 - Delete student")
     print("6 - Edit student")
+    print("7- Statistics")
     print("0 - Exit")
 
     choice = input("Choose: ")
@@ -97,6 +98,18 @@ while True:
             print("Student updated successfully.")
         else:
             print("Student not found.")
+
+    elif choice == "7":
+        stats = manager.statistics()
+
+        if stats is None:
+            print("No students found.")
+        else:
+            print("\n========== STATISTICS ==========")
+            print(f"Total students: {stats['total_students']}")
+            print(f"Highest average: {stats['highest_average']:.2f}")
+            print(f"Lowest average: {stats['lowest_average']:.2f}")
+            print(f"Overall average: {stats['overall_average']:.2f}")
 
     elif choice == "0":
         print("Goodbye!")

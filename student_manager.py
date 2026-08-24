@@ -73,4 +73,16 @@ class StudentManager:
 
         student.name = new_name
         return True
-    
+
+    def statistics(self):
+        if not self.students:
+            return None
+
+        averages = [student.average() for student in self.students]
+
+        return {
+            "total_students": len(self.students),
+            "highest_average": max(averages),
+            "lowest_average": min(averages),
+            "overall_average": sum(averages) / len(averages)
+         }
