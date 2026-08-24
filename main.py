@@ -1,0 +1,91 @@
+from student_manager import StudentManager
+
+
+manager = StudentManager()
+
+manager.load_students()
+
+
+while True:
+    print("\n================================")
+    print("      STUDENT GRADE SYSTEM")
+    print("================================")
+    print("1 - Add student")
+    print("2 - Show students")
+    print("3 - Add grade")
+    print("4 - Find student")
+    print("5 - Delete student")
+    print("0 - Exit")
+
+    choice = input("Choose: ")
+
+    if choice == "1":
+        name = input("Student name: ").strip()
+        student_id = input("Student ID: ").strip()
+
+        if not name:
+            print("Student name cannot be empty.")
+            continue
+        if not student_id:
+            print("Student ID cannot be empty.")
+            continue
+        if manager.add_student(name,student_id):
+            manager.save_students()
+            print("Student added successfully.")
+
+        else:
+            print("A student with this ID already exists.")
+
+
+    elif choice == "2":
+        manager.show_students()
+
+    elif choice == "3":
+        student_id = input("Student ID: ")
+        student = manager.find_student(student_id)
+
+        if student is None:
+            print("Student not found.")
+        else:
+            try:
+                grade = float(input("Grade: "))
+
+                if grade < 0 or grade > 100:
+                    print("Grade must be between 0 and 100.")
+                    continue
+
+                student.add_grade(grade)
+                manager.save_students()
+
+                print("Grade added successfully.")
+
+            except ValueError:
+                print("Please enter a valid number.")
+
+    elif choice == "4":
+        student_id = input("Student ID: ")
+        student = manager.find_student(student_id)
+
+        if student is None:
+            print("Student not found.")
+        else:
+            print(f"Name: {student.name}")
+            print(f"ID: {student.student_id}")
+            print(f"Grades: {student.grades}")
+            print(f"Average: {student.average()}")
+
+    elif choice == "5":
+        student_id = input("Student ID: ").strip()
+
+        if manager.delete_student(student_id):
+            manager.save_students()
+            print("Student deleted successfully.")
+        else:
+            print("Student not found.")
+
+    elif choice == "0":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid choice.")
