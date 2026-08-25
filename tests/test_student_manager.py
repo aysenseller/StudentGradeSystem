@@ -121,3 +121,26 @@ def test_show_students(capsys):
     assert "ID: 100" in captured.out
     assert "Name: Ayşen" in captured.out
     assert "Average: 85.00" in captured.out
+
+def test_save_and_load_students(tmp_path):
+    filename = tmp_path / "test_data.json"
+
+    manager = StudentManager()
+
+    manager.add_student("Ali", "100")
+    student = manager.find_student("100")
+    student.add_grade(85)
+    student.add_grade(95)
+
+    manager.save_students(filename)
+
+    new_manager = StudentManager()
+    new_manager.load_students(filename)
+
+    loaded_student = new_manager.find_student("100")
+
+    assert loaded_student is not None
+    assert loaded_student.name == "Ali"
+    assert loaded_student.student_id == "100"
+    assert loaded_student.grades == [85, 95]
+    assert loaded_student.average() == 90
