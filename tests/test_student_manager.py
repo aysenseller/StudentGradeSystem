@@ -98,14 +98,27 @@ def test_search_by_name():
     manager = StudentManager()
 
     manager.add_student("Samet", "1")
-    manager.add_student("Ali","2")
-    manager.add_student("Mehmet", "3")
+    manager.add_student("Ali", "2")
+    manager.add_student("Alihan", "3")
+    manager.add_student("Mehmet", "4")
 
-    results = manager.search_by_name("Mehmet")
+    results = manager.search_by_name("ali")
+
+    assert len(results) == 2
+    assert results[0].name == "Ali"
+    assert results[1].name == "Alihan"
+
+def test_search_by_name_case_insensitive():
+    manager = StudentManager()
+
+    manager.add_student("Ali", "1")
+    manager.add_student("Mehmet", "2")
+
+    results = manager.search_by_name("ALI")
 
     assert len(results) == 1
-    assert results[0].name == "Mehmet"
-    
+    assert results[0].name == "Ali"
+
 def test_show_students(capsys):
     manager = StudentManager()
 
