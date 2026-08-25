@@ -176,7 +176,19 @@ def main():
             edit_student(manager)
 
         elif choice == "7":
-            show_statistics(manager)
+            stats = manager.statistics()
+
+            if stats is None:
+                print("No students found.")
+
+            else:
+                print("\n========== STATISTICS ==========")
+                print(f"Total students: {stats['total_students']}")
+                print(f"Students with grades: {stats['students_with_grades']}")
+                print(f"Students without grades: {stats['students_without_grades']}")
+                print(f"Highest average: {stats['highest_average']:.2f}")
+                print(f"Lowest average: {stats['lowest_average']:.2f}")
+                print(f"Overall average: {stats['overall_average']:.2f}")
 
         elif choice == "8":
             search_by_name(manager)

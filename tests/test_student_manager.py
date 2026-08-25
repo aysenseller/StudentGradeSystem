@@ -157,3 +157,19 @@ def test_save_and_load_students(tmp_path):
     assert loaded_student.student_id == "100"
     assert loaded_student.grades == [85, 95]
     assert loaded_student.average() == 90
+
+def test_statistics_students_with_and_without_grades():
+    manager = StudentManager()
+
+    manager.add_student("Samet","1")
+    manager.add_student("Ali","2")
+    manager.add_student("Mehmet","3")
+
+    manager.find_student("1").add_grade(80)
+    manager.find_student("2").add_grade(60)
+
+    stats= manager.statistics()
+
+    assert stats["total_students"] == 3
+    assert stats["students_with_grades"] == 2
+    assert stats["students_without_grades"] == 1
