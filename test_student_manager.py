@@ -93,3 +93,16 @@ def test_statistics():
     assert stats["highest_average"] == 80
     assert stats["lowest_average"] == 60
     assert stats["overall_average"] == 70
+
+def test_search_by_name():
+    manager = StudentManager()
+
+    manager.add_student("Samet", "1")
+    manager.add_student("Ali","2")
+    manager.add_student("Mehmet", "3")
+
+    results = manager.search_by_name("Mehmet")
+
+    assert len(results) == 1
+    assert results[0].name == "Mehmet"
+    print([student.name for student in results])

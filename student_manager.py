@@ -86,3 +86,12 @@ class StudentManager:
             "lowest_average": min(averages),
             "overall_average": sum(averages) / len(averages)
          }
+
+    def search_by_name(self, name):
+        results = []
+
+        for student in self.students:
+            if name.lower() in student.name.lower():
+                results.append(student)
+
+        return results

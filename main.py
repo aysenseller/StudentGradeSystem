@@ -17,6 +17,7 @@ while True:
     print("5 - Delete student")
     print("6 - Edit student")
     print("7- Statistics")
+    print("8 - Search by name")
     print("0 - Exit")
 
     choice = input("Choose: ")
@@ -111,6 +112,19 @@ while True:
             print(f"Lowest average: {stats['lowest_average']:.2f}")
             print(f"Overall average: {stats['overall_average']:.2f}")
 
+
+    elif choice == "8":
+        name = input("Student name: ").strip()
+
+        results = manager.search_by_name(name)
+
+        if not results:
+            print("No students found.")
+        else:
+            for student in results:
+                print(student)
+
+                
     elif choice == "0":
         print("Goodbye!")
         break
