@@ -6,34 +6,35 @@ The application allows users to manage students, add and update grades, calculat
 
 ## Features
 
-- Add students
-- Show all students
-- Find students by ID
-- Search students by name
-- Edit student information
-- Delete students
-- Add grades
-- Calculate student averages
-- Show statistics
-- Save data as JSON
-- Load data from JSON
-- Input validation
-- Automated tests with pytest
-- GitHub Actions CI
+* Add students
+* Show all students
+* Find students by ID
+* Search students by name
+* Edit student information
+* Delete students
+* Add grades
+* Calculate student averages
+* Show statistics
+* Save data as JSON
+* Load data from JSON
+* Input validation
+* Automated tests with pytest
+* GitHub Actions CI
 
 ## Technologies
 
-- Python 3
-- JSON
-- Pytest
-- Git
-- GitHub
-- GitHub Actions
+* Python 3
+* JSON
+* Pytest
+* Git
+* GitHub
+* GitHub Actions
 
 ## Project Structure
 
 ```text
 StudentGradeSystem/
+
 │
 ├── src/
 │   ├── student.py
@@ -49,6 +50,7 @@ StudentGradeSystem/
 ├── pytest.ini
 ├── .gitignore
 └── README.md
+```
 
 ## Installation
 
@@ -72,13 +74,13 @@ python3 -m venv .venv
 
 ### 4. Activate the virtual environment
 
-macOS / Linux:
+**macOS / Linux:**
 
 ```bash
 source .venv/bin/activate
 ```
 
-Windows:
+**Windows:**
 
 ```bash
 .venv\Scripts\activate
@@ -89,3 +91,39 @@ Windows:
 ```bash
 pip install -r requirements.txt
 ```
+
+## Usage
+
+Run the application:
+
+```bash
+python3 main.py
+```
+
+The application provides a terminal-based menu for managing students, grades, searches, and statistics.
+
+## Testing
+
+Run all tests with:
+
+```bash
+pytest
+```
+
+The project currently contains 21 automated tests covering:
+
+* Student creation
+* Grade management
+* Average calculation
+* Student validation
+* Student management
+* Student search
+* Statistics
+* JSON save/load
+* Student display
+
+## Continuous Integration
+
+GitHub Actions automatically runs the test suite when changes are pushed or a pull request is created.
+
+All tests must pass before changes are merged into the `main` branch.
