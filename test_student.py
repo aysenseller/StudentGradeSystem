@@ -25,3 +25,16 @@ def test_average():
     student.add_grade(90)
 
     assert student.average() == 85
+
+def test_student_details():
+    student = Student("Samet", "1245")
+
+    student.add_grade(80)
+    student.add_grade(90)
+
+    details = student.details()
+
+    assert "Samet" in details
+    assert "1245" in details
+    assert "80" in details
+    assert "90" in details

@@ -18,6 +18,7 @@ while True:
     print("6 - Edit student")
     print("7- Statistics")
     print("8 - Search by name")
+    print("9 - Show student details")
     print("0 - Exit")
 
     choice = input("Choose: ")
@@ -124,7 +125,19 @@ while True:
             for student in results:
                 print(student)
 
-                
+    elif choice == "9":
+        student_id = input("Student ID: ").strip()
+
+        student = manager.find_student(student_id)
+
+        if student is None:
+            print("Student not found.")
+        else:
+            print("\n====================")
+            print(student.details())
+            print("====================")
+
+
     elif choice == "0":
         print("Goodbye!")
         break

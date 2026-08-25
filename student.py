@@ -27,4 +27,12 @@ class Student:
               data["student_id"],
               data["grades"]
          )
+
+    def details(self):
+        return (
+            f"Name: {self.name}\n"
+            f"ID: {self.student_id}\n"
+            f"Grades: {self.grades}\n"
+            f"Average: {self.average():.2f}"
+        )
     
