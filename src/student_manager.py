@@ -80,8 +80,15 @@ class StudentManager:
 
         averages = [student.average() for student in self.students]
 
+        students_with_grades = sum(
+            1 for student in self.students if student.grades
+        )
+        students_without_grades = len(self.students) - students_with_grades
+
         return {
             "total_students": len(self.students),
+            "students_with_grades": students_with_grades,
+            "students_without_grades": students_without_grades,
             "highest_average": max(averages),
             "lowest_average": min(averages),
             "overall_average": sum(averages) / len(averages)
