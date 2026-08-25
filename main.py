@@ -1,4 +1,5 @@
-from student_manager import StudentManager
+from src.student import Student
+from src.student_manager import StudentManager
 
 
 manager = StudentManager()
@@ -123,7 +124,11 @@ while True:
             print("No students found.")
         else:
             for student in results:
-                print(student)
+                print(
+                    f"ID: {student.student_id} | "
+                    f"Name: {student.name} | "
+                    f"Average: {student.average():.2f}"
+                )
 
     elif choice == "9":
         student_id = input("Student ID: ").strip()

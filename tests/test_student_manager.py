@@ -1,4 +1,4 @@
-from student_manager import StudentManager
+from src.student_manager import StudentManager
 
 
 def test_add_student():
@@ -105,4 +105,4 @@ def test_search_by_name():
 
     assert len(results) == 1
     assert results[0].name == "Mehmet"
-    print([student.name for student in results])
+    
