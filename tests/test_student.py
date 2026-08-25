@@ -1,5 +1,5 @@
 from src.student import Student
-
+import pytest 
 
 def test_student_creation():
     student = Student("Samet", "1245")
@@ -38,3 +38,18 @@ def test_student_details():
     assert "1245" in details
     assert "80" in details
     assert "90" in details
+
+
+def test_student_empty_name():
+    with pytest.raises(ValueError):
+        Student("", "123")
+
+
+def test_student_invalid_name():
+    with pytest.raises(ValueError):
+        Student("28", "123")
+
+
+def test_student_invalid_id():
+    with pytest.raises(ValueError):
+        Student("Ayşen", "abc")
