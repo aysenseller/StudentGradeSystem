@@ -106,3 +106,18 @@ def test_search_by_name():
     assert len(results) == 1
     assert results[0].name == "Mehmet"
     
+def test_show_students(capsys):
+    manager = StudentManager()
+
+    manager.add_student("Ayşen", "100")
+    student = manager.find_student("100")
+    student.add_grade(80)
+    student.add_grade(90)
+
+    manager.show_students()
+
+    captured = capsys.readouterr()
+
+    assert "ID: 100" in captured.out
+    assert "Name: Ayşen" in captured.out
+    assert "Average: 85.00" in captured.out

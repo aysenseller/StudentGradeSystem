@@ -23,7 +23,7 @@ class StudentManager:
         for student in self.students:
             print(f"ID: {student.student_id} |"
                   f"Name: {student.name} |"
-                  f"Average: {student.average()}"
+                  f"Average: {student.average():.2f}"
                   )
 
     def find_student(self,student_id):
